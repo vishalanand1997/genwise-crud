@@ -1,0 +1,41 @@
+.singleNoteContainer{
+    width: 170px;
+    border: 2px solid #D8C479;
+    padding: 5px;
+    margin-top: 10px!important;
+}
+.identifierFirstLetter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffff;
+    font-weight: 500;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #D8C479;
+}
+.header{
+    display: flex;
+    align-items: center;
+}
+.title{
+    margin-left: 8px!important;
+}
+.timestamp{
+    margin-top: 10px!important;
+    display: flex;
+    align-items: center;
+    font-size: 12px!important;
+    font-weight: 500;
+}
+.calenderIcon{
+    color: #D8C479;
+}
+
+
+@media screen and (min-device-width: 360px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+    .singleNoteContainer{
+        width: auto!important;
+    }
+  }

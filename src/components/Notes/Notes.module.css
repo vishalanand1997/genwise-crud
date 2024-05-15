@@ -1,0 +1,11 @@
+.notesContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-device-width: 360px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+    .notesContainer {
+        display: flex;
+        flex-direction: column !important;
+    }
+}

@@ -1,0 +1,32 @@
+.login_with_email_spacing {
+  margin-bottom: 20px;
+}
+
+.error__message {
+  color: rgba(255, 0, 0, 0.6);
+  margin-right: 20px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.error__message::before {
+  content: "⚠ ";
+}
+
+.login__container {
+  background-color: #1A1A1A !important;
+  min-height: 100vh;
+  max-height: 100%;
+  padding: 30px 30px 0px 30px;
+}
+.login_text_field {
+  width: 100%;
+}
+.logo_image{
+  max-width: 180px;
+}
+@media screen and (min-device-width: 360px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+  .login__container {
+    padding: 30px 0px;
+  }
+}
