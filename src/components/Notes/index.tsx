@@ -13,23 +13,30 @@ import { connect } from 'react-redux';
 interface IProps {
     list: INoteDetail[]
 }
+interface INoteUpdatedDetail {
+    id: number;
+    title: string;
+    description: string;
+    isUpdated: boolean;
+}
 function Notes(props: IProps) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [isNoteUpdated, setNoteUpdated] = useState<boolean>(false);
+    const [isNoteUpdatedDetail, setNoteUpdatedDetail] = useState<INoteUpdatedDetail>({ id: 0, title: '', description: '', isUpdated: false });
+
 
     const handleOpenCloseModal = () => {
         setIsModalOpen(!isModalOpen)
-        setNoteUpdated(false);
+        setNoteUpdatedDetail({ ...isNoteUpdatedDetail, isUpdated: false });
     };
 
-    const getSpecificNoteById = (id: number) => {
-        setNoteUpdated(!isModalOpen);
-        setIsModalOpen(!isNoteUpdated);
-        const selectedNoteDetail = props.list.filter((note) => note.id === id);
+    const getSpecificNoteById = (uniqueId: number) => {
+        setIsModalOpen(!isModalOpen);
+        const { id, title, description } = props.list.filter((note) => note.id === uniqueId)[0];
+        setNoteUpdatedDetail({ ...isNoteUpdatedDetail, id, title, description, isUpdated: !isNoteUpdatedDetail.isUpdated });
     }
     return (
         <Background>
-            <DialogBox isUpdate={isNoteUpdated} isOpen={isModalOpen} openCloseModal={handleOpenCloseModal} />
+            <DialogBox {...isNoteUpdatedDetail} isOpen={isModalOpen} openCloseModal={handleOpenCloseModal} />
             <Card width={"100%"}>
                 <Button type="button" label={<><AddIcon />Add Note</>} trigger={handleOpenCloseModal} />
                 <Grid container className={NoteStyle.notesContainer}>
@@ -39,7 +46,7 @@ function Notes(props: IProps) {
                             handleSpecificNote={getSpecificNoteById}
                             key={note.id} />
                     )) : <Grid item width={"100%"}>
-                        <Typography variant='h3' textAlign={"center"}>No Notes found 😀</Typography>
+                        <Typography variant='h3' textAlign={"center"}>Notes not found 😀</Typography>
                     </Grid>}
                 </Grid>
             </Card>

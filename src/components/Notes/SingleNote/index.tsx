@@ -2,7 +2,6 @@ import React from 'react'
 import { Grid, Typography } from '@mui/material'
 import SingleNoteStyle from "./SingleNote.module.css"
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import DialogBox from '../../Modal';
 
 interface IProps {
   id: number;

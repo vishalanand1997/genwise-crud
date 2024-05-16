@@ -1,4 +1,5 @@
 export enum action {
   SET_USER_EMAIL = "SET_USER_EMAIL",
-  SET_NOTE = "SET_NOTE"
+  ADD_NOTE = "ADD_NOTE",
+  UPDATE_NOTE = "UPDATE_NOTE"
 }

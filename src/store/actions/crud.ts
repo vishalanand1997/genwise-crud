@@ -1,4 +1,4 @@
-import { IAddNoteDetail } from "../initialStateType";
+import { IAddNoteDetail, INoteDetail } from "../initialStateType";
 import * as actionTypes from "./actionTypes";
 
 export const setUserEmailId = (email: string) => {
@@ -10,7 +10,14 @@ export const setUserEmailId = (email: string) => {
 
 export const setNote = (note: IAddNoteDetail) => {
   return {
-    type: actionTypes.action.SET_NOTE,
+    type: actionTypes.action.ADD_NOTE,
+    note,
+  };
+};
+
+export const editNote = (note: INoteDetail) => {
+  return {
+    type: actionTypes.action.UPDATE_NOTE,
     note,
   };
 };

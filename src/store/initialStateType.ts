@@ -19,7 +19,11 @@ export interface IAddNoteDetail {
   description: string;
 }
 export interface IAddNote {
-  type: action.SET_NOTE;
+  type: action.ADD_NOTE;
   note: IAddNoteDetail;
 }
-export type IActionTypes = IAddNote | IActionUserEmail;
+export interface IUpdateNote {
+  type: action.UPDATE_NOTE;
+  note: INoteDetail;
+}
+export type IActionTypes = IAddNote | IUpdateNote | IActionUserEmail;
