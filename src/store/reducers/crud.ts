@@ -14,6 +14,7 @@ const reducer = (state = notes, action: IActionTypes) => {
     }
     return { ...state, list: [...state.list, noteDetail] }
   }
+
   const updateNoteHandler = (state: IState, note: INoteDetail) => {
     return {
       ...state, list: state.list.map((list) =>
@@ -24,6 +25,11 @@ const reducer = (state = notes, action: IActionTypes) => {
       )
     };
   }
+
+  const deleteNoteHandler = (state: IState, noteId: number) => {
+    return { ...state, list: state.list.filter((note) => note.id !== noteId) }
+  }
+
   switch (action.type) {
     case actionTypes.action.SET_USER_EMAIL:
       return { ...state, userEmail: action.email };
@@ -31,6 +37,8 @@ const reducer = (state = notes, action: IActionTypes) => {
       return setNoteHandler(state, action.note);
     case actionTypes.action.UPDATE_NOTE:
       return updateNoteHandler(state, action.note);
+    case actionTypes.action.DELETE_NOTE:
+      return deleteNoteHandler(state, action.id);
     default:
       return state;
   }

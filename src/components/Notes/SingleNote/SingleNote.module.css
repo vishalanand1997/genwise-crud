@@ -1,10 +1,12 @@
-.singleNoteContainer{
+.singleNoteContainer {
     width: 170px;
     border: 2px solid #D8C479;
     padding: 5px;
-    margin-top: 10px!important;
+    margin-top: 15px !important;
+    position: relative;
 }
-.identifierFirstLetter{
+
+.identifierFirstLetter {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,27 +17,40 @@
     border-radius: 50%;
     background-color: #D8C479;
 }
-.header{
+
+.header {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
-.title{
-    margin-left: 8px!important;
+
+.title {
+    margin-left: 8px !important;
 }
-.timestamp{
-    margin-top: 10px!important;
+
+.timestamp {
+    margin-top: 10px !important;
     display: flex;
     align-items: center;
-    font-size: 12px!important;
+    font-size: 12px !important;
     font-weight: 500;
 }
-.calenderIcon{
+
+.icon {
     color: #D8C479;
+}
+
+.removeIcon {
+    position: absolute;
+    top: -15px;
+    right: -7%;
+    color: #D8C479;
+    cursor: pointer;
 }
 
 
 @media screen and (min-device-width: 360px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
-    .singleNoteContainer{
-        width: auto!important;
+    .singleNoteContainer {
+        width: auto !important;
     }
-  }
+}

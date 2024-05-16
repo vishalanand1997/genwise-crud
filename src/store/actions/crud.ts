@@ -21,3 +21,10 @@ export const editNote = (note: INoteDetail) => {
     note,
   };
 };
+
+export const deleteNote = (id: number) => {
+  return {
+    type: actionTypes.action.DELETE_NOTE,
+    id
+  }
+}

@@ -26,4 +26,8 @@ export interface IUpdateNote {
   type: action.UPDATE_NOTE;
   note: INoteDetail;
 }
-export type IActionTypes = IAddNote | IUpdateNote | IActionUserEmail;
+export interface IDeleteNote {
+  type: action.DELETE_NOTE;
+  id: number;
+}
+export type IActionTypes = IAddNote | IUpdateNote | IDeleteNote | IActionUserEmail;
