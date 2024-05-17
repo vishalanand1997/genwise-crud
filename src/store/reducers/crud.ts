@@ -1,34 +1,45 @@
 import { notes } from "../initialState";
 import * as actionTypes from "../actions/actionTypes";
-import { IActionTypes, IAddNoteDetail, INoteDetail, IState } from "../initialStateType";
-import moment from 'moment';
+import {
+  IActionTypes,
+  IAddNoteDetail,
+  INoteDetail,
+  IState,
+} from "../initialStateType";
 
 const reducer = (state = notes, action: IActionTypes) => {
-
   const setNoteHandler = (state: IState, note: IAddNoteDetail) => {
-    const current = moment()
-    const noteDetail = {
-      id: Math.floor(Math.random() * 1000000),
-      createdAt: current.format('MMMM Do, YYYY h:mm a'),
-      ...note,
-    }
-    return { ...state, list: [...state.list, noteDetail] }
-  }
+    return {
+      ...state,
+      list: [
+        ...state.list,
+        {
+          id: Math.floor(Math.random() * 1000000),
+          ...note,
+        },
+      ],
+    };
+  };
 
   const updateNoteHandler = (state: IState, note: INoteDetail) => {
     return {
-      ...state, list: state.list.map((list) =>
-        list.id === note.id ?
-          { ...note, title: note.title, description: note.description, createdAt: note.createdAt }
-          :
-          list
-      )
+      ...state,
+      list: state.list.map((list) =>
+        list.id === note.id
+          ? {
+              ...note,
+              title: note.title,
+              description: note.description,
+              createdAt: note.createdAt,
+            }
+          : list
+      ),
     };
-  }
+  };
 
   const deleteNoteHandler = (state: IState, noteId: number) => {
-    return { ...state, list: state.list.filter((note) => note.id !== noteId) }
-  }
+    return { ...state, list: state.list.filter((note) => note.id !== noteId) };
+  };
 
   switch (action.type) {
     case actionTypes.action.SET_USER_EMAIL:
@@ -39,6 +50,8 @@ const reducer = (state = notes, action: IActionTypes) => {
       return updateNoteHandler(state, action.note);
     case actionTypes.action.DELETE_NOTE:
       return deleteNoteHandler(state, action.id);
+    case actionTypes.action.REMOVE_USER_SESSION:
+      return { ...state, userEmail: "" };
     default:
       return state;
   }

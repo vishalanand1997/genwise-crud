@@ -8,6 +8,12 @@ export const setUserEmailId = (email: string) => {
   };
 };
 
+export const removeUserSession = () => {
+  return {
+    type: actionTypes.action.REMOVE_USER_SESSION,
+  };
+};
+
 export const setNote = (note: IAddNoteDetail) => {
   return {
     type: actionTypes.action.ADD_NOTE,
@@ -25,6 +31,6 @@ export const editNote = (note: INoteDetail) => {
 export const deleteNote = (id: number) => {
   return {
     type: actionTypes.action.DELETE_NOTE,
-    id
-  }
-}
+    id,
+  };
+};

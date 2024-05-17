@@ -14,7 +14,7 @@
 }
 
 .login__container {
-  background-color: #1A1A1A !important;
+  background-color: #1a1a1a !important;
   min-height: 100vh;
   max-height: 100%;
   padding: 30px 30px 0px 30px;
@@ -22,8 +22,19 @@
 .login_text_field {
   width: 100%;
 }
-.logo_image{
+.logo_image {
   max-width: 180px;
+  height: 25px !important;
+}
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 20px 20px !important;
+}
+.logoutBtn {
+  display: flex;
+  color: #d8c479;
+  cursor: pointer;
 }
 @media screen and (min-device-width: 360px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
   .login__container {

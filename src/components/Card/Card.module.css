@@ -2,3 +2,9 @@
   margin: auto;
   position: relative;
 }
+
+@media screen and (min-device-width: 360px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+  .card_container {
+    width: 80% !important;
+  }
+}

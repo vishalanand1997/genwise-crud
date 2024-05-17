@@ -1,20 +1,15 @@
-import React from 'react'
-import LoginWithEmail from './components/LoginWithEmail/LoginWithEmail';
-import { Provider } from 'react-redux';
-import { makeStore } from './store/store';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Notes from './components/Notes';
+import React from "react";
+import { Provider } from "react-redux";
+import { makeStore } from "./store/store";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import Routes from "./routes";
 
 function App() {
   return (
     <Provider store={makeStore()}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginWithEmail />}>
-          </Route>
-          <Route path="notes" element={<Notes />} />
-        </Routes>
-      </BrowserRouter>
+      <ToastContainer />
+      <Routes />
     </Provider>
   );
 }

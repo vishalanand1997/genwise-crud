@@ -17,6 +17,7 @@ export interface IActionUserEmail {
 export interface IAddNoteDetail {
   title: string;
   description: string;
+  createdAt: string;
 }
 export interface IAddNote {
   type: action.ADD_NOTE;
@@ -30,4 +31,12 @@ export interface IDeleteNote {
   type: action.DELETE_NOTE;
   id: number;
 }
-export type IActionTypes = IAddNote | IUpdateNote | IDeleteNote | IActionUserEmail;
+export interface IRemoveUserSession {
+  type: action.REMOVE_USER_SESSION;
+}
+export type IActionTypes =
+  | IAddNote
+  | IUpdateNote
+  | IDeleteNote
+  | IRemoveUserSession
+  | IActionUserEmail;
